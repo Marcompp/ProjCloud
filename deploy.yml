@@ -2,6 +2,9 @@
 - hosts: localhost
   gather_facts: no
   tasks:
+    - name: Config
+      shell: aws eks --region us-east-1 update-kubeconfig --name my-eks-cluster
+
     - name: Run kubectl
       shell: kubectl run cloudv1 --image=marcompp/cloudv1   
 
