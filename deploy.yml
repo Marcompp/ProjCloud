@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Run kubectl
+      shell: kubectl run cloudv1 --image:marcompp/cloudv1   
+
+    - name: Expose deployment
+      shell: kubectl expose pod/cloudv1 --port=80 --type=LoadBalancer 
